@@ -81,6 +81,9 @@ const AuthState = props => {
         type: LOGIN_SUCCESS,
         payload: res.data
       });
+
+
+      loadUser();
     } catch (err) {
       dispatch({
         type: LOGIN_FAIL,
@@ -89,10 +92,9 @@ const AuthState = props => {
     }
   };
   // Logout
-  const logout = () => console.log("logout");
+  const logout = () => dispatch({ type: LOGOUT });
   // Clear Errors
   const clearErrors = () => dispatch({ type: CLEAR_ERRORS });
-
   return (
     <AuthContext.Provider
       value={{
